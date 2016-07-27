@@ -15,8 +15,8 @@ public class Collider extends Component {
     public static final int MASK_WORLD = 32;
     public static final int MASK_ALL = -1;
 
-    public int category = MASK_NONE;
-    public int mask = MASK_ALL;
+    private int category = MASK_NONE;
+    private int mask = MASK_ALL;
 
     public Collider() {
 
@@ -32,4 +32,11 @@ public class Collider extends Component {
         this.mask = mask;
     }
 
+    public int getCategory() {
+        return category;
+    }
+
+    public int getMask() {
+        return mask;
+    }
 }
