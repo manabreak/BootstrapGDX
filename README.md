@@ -19,6 +19,12 @@ If you have ideas on how to improve this, feel free to create pull requests!
 
 - Automatic texture atlas creation when running the desktop build
 
+## Upcoming
+
+- JUnit test support
+
+- Mockito support
+
 ## License
 
 This is licensed under MIT license. Feel free to grab a copy and modify
