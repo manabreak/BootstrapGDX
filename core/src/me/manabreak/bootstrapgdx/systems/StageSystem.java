@@ -40,6 +40,11 @@ public class StageSystem extends IteratingSystem {
         if (sprites.has(entityId)) {
             Actor a = actors.get(entityId).getActor();
             Sprite s = sprites.get(entityId).getSprite();
+            s.setPosition(a.getX(), a.getY());
+            s.setScale(a.getScaleX(), a.getScaleY());
+            s.setOrigin(a.getOriginX(), a.getOriginY());
+            s.setRotation(a.getRotation());
+            s.setColor(a.getColor());
         }
     }
 
