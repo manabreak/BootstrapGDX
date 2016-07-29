@@ -7,6 +7,7 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 
 public class Res {
 
+    public static final String ATLAS_PATH = "graphics/game.atlas";
     private static TextureAtlas atlas;
 
     public static Sprite createSprite(String name) {
@@ -18,6 +19,10 @@ public class Res {
     }
 
     public static void load() {
-        atlas = new TextureAtlas(Gdx.files.internal("graphics/game.atlas"));
+        if(!Gdx.files.internal(ATLAS_PATH).exists()) {
+            atlas = new TextureAtlas();
+        }else {
+            atlas = new TextureAtlas(ATLAS_PATH);
+        }
     }
 }
