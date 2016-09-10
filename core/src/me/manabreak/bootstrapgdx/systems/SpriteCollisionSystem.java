@@ -11,7 +11,6 @@ import java.util.List;
 
 import me.manabreak.bootstrapgdx.CollisionCallback;
 import me.manabreak.bootstrapgdx.components.Collider;
-import me.manabreak.bootstrapgdx.components.SpriteComponent;
 
 /**
  * A rather simple collision system to detect collisions between two sprites.

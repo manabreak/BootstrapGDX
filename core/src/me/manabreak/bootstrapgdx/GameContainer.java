@@ -3,7 +3,7 @@ package me.manabreak.bootstrapgdx;
 import com.artemis.World;
 import com.artemis.WorldConfiguration;
 import com.artemis.WorldConfigurationBuilder;
-import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.utils.viewport.ExtendViewport;
 
 import me.manabreak.bootstrapgdx.systems.StageSystem;
 
@@ -15,7 +15,7 @@ public class GameContainer {
 
         WorldConfiguration config = new WorldConfigurationBuilder()
                 .with(
-                        new StageSystem(Gdx.graphics.getWidth(), Gdx.graphics.getHeight())
+                        new StageSystem(new ExtendViewport(100f, 100f))
                 )
                 .build();
 
