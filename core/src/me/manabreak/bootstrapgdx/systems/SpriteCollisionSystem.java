@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import me.manabreak.bootstrapgdx.CollisionCallback;
+import me.manabreak.bootstrapgdx.components.ActorComponent;
 import me.manabreak.bootstrapgdx.components.Collider;
 
 /**
@@ -18,14 +19,14 @@ import me.manabreak.bootstrapgdx.components.Collider;
 public class SpriteCollisionSystem extends BaseEntitySystem {
 
     private final List<CollisionCallback> collisionCallbacks = new ArrayList<>();
-    private ComponentMapper<SpriteComponent> sprites;
+    private ComponentMapper<ActorComponent> sprites;
     private ComponentMapper<Collider> colliders;
 
     /**
      * Creates a new sprite collision system
      */
     public SpriteCollisionSystem() {
-        super(Aspect.all(Collider.class, SpriteComponent.class));
+        super(Aspect.all(Collider.class, ActorComponent.class));
     }
 
     /**
