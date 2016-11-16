@@ -9,6 +9,7 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.viewport.Viewport;
 
 import me.manabreak.bootstrapgdx.components.ActorComponent;
+import me.manabreak.bootstrapgdx.components.GroupComponent;
 
 /**
  * A simple system that wraps a stage and handles
@@ -19,20 +20,29 @@ public class StageSystem extends IteratingSystem {
 
     private final Stage stage;
     private ComponentMapper<ActorComponent> actors;
+    private ComponentMapper<GroupComponent> groups;
 
     public StageSystem(Viewport viewport) {
-        super(Aspect.all(ActorComponent.class));
+        super(Aspect.one(ActorComponent.class, GroupComponent.class));
         stage = new Stage(viewport);
     }
 
     @Override
     public void inserted(int e) {
-        stage.getRoot().addActorAt(0, actors.get(e).actor);
+        if (actors.has(e)) {
+            stage.getRoot().addActorAt(0, actors.get(e).actor);
+        } else if (groups.has(e)) {
+            stage.getRoot().addActorAt(0, groups.get(e).getGroup());
+        }
     }
 
     @Override
     public void removed(int e) {
-        actors.get(e).getActor().remove();
+        if (actors.has(e)) {
+            actors.get(e).getActor().remove();
+        } else if (groups.has(e)) {
+            groups.get(e).getGroup().remove();
+        }
     }
 
     @Override

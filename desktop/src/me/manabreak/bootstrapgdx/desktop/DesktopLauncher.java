@@ -13,8 +13,8 @@ public class DesktopLauncher {
     public static void main(String[] arg) {
         LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
 
-        config.height = 960;
-        config.width = 576;
+        config.height = 576;
+        config.width = 960;
 
         File f = new File("../../images");
         if (f.exists() && f.isDirectory() && f.listFiles().length > 0) {
