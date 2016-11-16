@@ -116,12 +116,6 @@ public class SpriteActor extends Actor {
     }
 
     @Override
-    public void rotateBy(float amountInDegrees) {
-        super.rotateBy(amountInDegrees);
-        sprite.setRotation(getRotation());
-    }
-
-    @Override
     public void setRotation(float degrees) {
         super.setRotation(degrees);
         sprite.setRotation(degrees);
