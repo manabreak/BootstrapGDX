@@ -6,9 +6,9 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.2.0'
-        classpath 'me.tatarka:gradle-retrolambda:3.2.5'
-        classpath 'net.onedaybeard.artemis:artemis-odb-gradle-plugin:1.4.0'
+        classpath 'com.android.tools.build:gradle:2.3.1'
+        classpath 'me.tatarka:gradle-retrolambda:3.6.0'
+        classpath 'net.onedaybeard.artemis:artemis-odb-gradle-plugin:2.1.0'
     }
 }
 
@@ -21,12 +21,12 @@ allprojects {
     version = '1.0'
     ext {
         appName = "BootstrapGdx"
-        gdxVersion = '1.9.3'
+        gdxVersion = '1.9.6'
         roboVMVersion = '2.1.0'
         box2DLightsVersion = '1.4'
         ashleyVersion = '1.7.0'
         aiVersion = '1.8.0'
-        artemisVersion = "2.0.0-RC5"
+        artemisVersion = "2.1.0"
     }
 
     repositories {
@@ -99,6 +99,15 @@ project(":core") {
     }
 }
 
-tasks.eclipse.doLast {
-    delete ".project"
+subprojects {
+    if (it.name != "android") { // android plugin is not compatible with java plugin
+        apply plugin: "java"
+        apply plugin: "idea"
+        idea {
+            module {
+                scopes.PROVIDED.minus += [configurations.compile]
+                scopes.COMPILE.plus += [configurations.compile]
+            }
+        }
+    }
 }
