@@ -1,7 +1,7 @@
 apply plugin: "java"
-apply plugin: "me.tatarka.retrolambda"
 
 sourceCompatibility = 1.8
+targetCompatibility = 1.8
 [compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
 
 sourceSets.main.java.srcDirs = ["src/"]
